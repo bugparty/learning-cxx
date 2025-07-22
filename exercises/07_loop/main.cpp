@@ -6,8 +6,16 @@
 static unsigned long long fibonacci(int i) {
     // TODO: 为缓存设置正确的初始值
     static unsigned long long cache[96], cached;
+    if (cached == 0) {
+        for (int j = 0; j < 96; ++j) {
+            cache[j] = 0;  // 初始化缓存
+        }
+        cache[1] = 1;  // 斐波那契数列
+        cache[2] = 1;  // 的前两个数
+        cached = 3;  // 已经计算的斐波那契数的
+    }
     // TODO: 设置正确的循环条件
-    for (; false; ++cached) {
+    for (; cached<96; ++cached) {
         cache[cached] = cache[cached - 1] + cache[cached - 2];
     }
     return cache[i];
