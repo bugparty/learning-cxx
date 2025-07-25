@@ -21,10 +21,17 @@ int main(int argc, char **argv) {
     // TODO: 初始化缓存结构体，使计算正确
     // NOTICE: C/C++ 中，读取未初始化的变量（包括结构体变量）是未定义行为
     // READ: 初始化的各种写法 <https://zh.cppreference.com/w/cpp/language/initialization>
+    #ifdef _MSR_VER
+    FibonacciCache fib;
+    fib.cache = {0, 1,1};
+    fib.cached = {3};
+    #else
     FibonacciCache fib{
         .cache = {0, 1,1}, // 初始化前两个斐波那契数
         .cached = 3      // 已缓存的斐波那契数个数
     };
+    #endif
+    
     //std::cout << fibonacci(fib, 3) << std::endl;
     ASSERT(fibonacci(fib, 10) == 55, "fibonacci(10) should be 55");
     std::cout << "fibonacci(10) = " << fibonacci(fib, 10) << std::endl;
