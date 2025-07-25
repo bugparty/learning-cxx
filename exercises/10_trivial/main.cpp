@@ -23,8 +23,10 @@ int main(int argc, char **argv) {
     // READ: 初始化的各种写法 <https://zh.cppreference.com/w/cpp/language/initialization>
     #ifdef _MSC_VER
     FibonacciCache fib;
-    fib.cache = {0, 1,1};
-    fib.cached = {3};
+    fib.cache[0]=0;
+    fib.cache[1]=1;
+    fib.cache[1]=1;
+    fib.cached = 3;
     #else
     FibonacciCache fib{
         .cache = {0, 1,1}, // 初始化前两个斐波那契数
