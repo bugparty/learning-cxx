@@ -2,8 +2,8 @@
 
 constexpr unsigned long long fibonacci(int n) {
     unsigned long long a = 0, b = 1;
-    for (int i = 0; i < n; ++i) {
-        int tmp = a + b;
+    for (auto i = 0; i < n; ++i) {
+        auto tmp = a + b;
         a = b;
         b = tmp;
     }
