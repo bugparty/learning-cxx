@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
     Fibonacci fib;
     fib.cache[0]=0;
     fib.cache[1]=1;
-    fib.cache[1]=1;
+    fib.cache[2]=1;
     fib.cached = 3;
     #else
     Fibonacci fib {
