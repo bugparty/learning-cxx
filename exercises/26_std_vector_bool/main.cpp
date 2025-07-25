@@ -12,7 +12,16 @@ int main(int argc, char **argv) {
     ASSERT(vec.size() == 100, "Make this assertion pass.");
     // NOTICE: 平台相关！注意 CI:Ubuntu 上的值。
     std::cout << "sizeof(std::vector<bool>) = " << sizeof(std::vector<bool>) << std::endl;
-    ASSERT(sizeof(vec) == 3*sizeof(size_t), "Fill in the correct value.");
+    #if defined(_MSC_VER)
+    #define BOOL_VEC_SIZE 32
+    #elif defined(__clang__)
+        #define BOOL_VEC_SIZE 3*sizeof(size_t)
+    #elif defined(__GNUC__)
+        #define BOOL_VEC_SIZE 40
+    #else
+        #define COMPILER_NAME 40
+    #endif
+    ASSERT(sizeof(vec) == BOOL_VEC_SIZE, "Fill in the correct value.");
     {
         vec[20] = false;
         ASSERT(!vec[20], "Fill in `vec[20]` or `!vec[20]`.");
