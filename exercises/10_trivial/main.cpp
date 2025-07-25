@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
     // TODO: 初始化缓存结构体，使计算正确
     // NOTICE: C/C++ 中，读取未初始化的变量（包括结构体变量）是未定义行为
     // READ: 初始化的各种写法 <https://zh.cppreference.com/w/cpp/language/initialization>
-    #ifdef _MSR_VER
+    #ifdef _MSC_VER
     FibonacciCache fib;
     fib.cache = {0, 1,1};
     fib.cached = {3};
