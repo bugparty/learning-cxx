@@ -34,8 +34,8 @@ int main(int argc, char **argv) {
     };
     #endif
     
-    //std::cout << fibonacci(fib, 3) << std::endl;
-    ASSERT(fibonacci(fib, 10) == 55, "fibonacci(10) should be 55");
     std::cout << "fibonacci(10) = " << fibonacci(fib, 10) << std::endl;
+    ASSERT(fibonacci(fib, 10) == 55, "fibonacci(10) should be 55");
+    
     return 0;
 }

@@ -27,7 +27,8 @@ int main(int argc, char **argv) {
         .cached = 3      // 已缓存的斐波那契数个数
     };
     #endif
-    ASSERT(fib.get(10) == 55, "fibonacci(10) should be 55");
     std::cout << "fibonacci(10) = " << fib.get(10) << std::endl;
+    ASSERT(fib.get(10) == 55, "fibonacci(10) should be 55");
+    
     return 0;
 }
